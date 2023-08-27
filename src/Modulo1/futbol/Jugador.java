@@ -5,6 +5,14 @@ public String nombre;
 public int numeroDeCamiseta;
 public  boolean capitan;
 
+    @Override
+    public String toString() {
+        return "Jugadores" +
+                "Nombre:'" + nombre + '\'' +
+                ", Número;" + numeroDeCamiseta +
+                ", Capitán:" + capitan;
+    }
+
     public String getNombre() {
         return nombre;
     }
