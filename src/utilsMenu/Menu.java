@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
-        private final String Request_Option = "Ingrese una opción";
+        private final String Request_Option = "Por favor, ingrese una opción";
 
         private final String Type_Error = "El valor ingresado debe de ser un número, por favor introduzca un valor disponible.";
 
