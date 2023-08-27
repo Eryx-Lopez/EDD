@@ -1,10 +1,10 @@
-package Modulo1.utils;
+package Modulo1.pasajeros.utils;
 
 import java.util.Optional;
 
 public class Node <E>{
-    E data;
-    Optional<Node<E>> next;
+    public E data;
+    public Optional<Node<E>> next;
 
     public Node(E data) {
         this.data = data; //Almacenar un dato tipo genérico

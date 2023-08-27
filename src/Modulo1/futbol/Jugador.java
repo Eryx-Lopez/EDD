@@ -2,7 +2,7 @@ package Modulo1.futbol;
 
 public class Jugador {
 public String nombre;
-public String numeroDeCamiseta;
+public int numeroDeCamiseta;
 public  boolean capitan;
 
     public String getNombre() {
@@ -13,11 +13,11 @@ public  boolean capitan;
         this.nombre = nombre;
     }
 
-    public String getNumeroDeCamiseta() {
+    public int getNumeroDeCamiseta() {
         return numeroDeCamiseta;
     }
 
-    public void setNumeroDeCamiseta(String numeroDeCamiseta) {
+    public void setNumeroDeCamiseta(int numeroDeCamiseta) {
         this.numeroDeCamiseta = numeroDeCamiseta;
     }
 
