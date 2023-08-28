@@ -1,5 +1,8 @@
 package Modulo1.futbol;
 
+/**
+ * Es la clase que se encarga de guardar los datos de nombre, camiseta y de si es capitán o no
+ */
 public class Jugador {
 public String nombre;
 public int numeroDeCamiseta;

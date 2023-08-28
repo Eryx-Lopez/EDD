@@ -18,6 +18,9 @@ public class Partido {
     public static String jugadorEquipo1;
     public static String jugadorEquipo2;
 
+    /**
+     * Pide los nombres y números de los capitanes del equipo
+     */
     public static void pedirNombresCapitanes(){
         Scanner nombres = new Scanner(System.in);
         Scanner numeros = new Scanner(System.in);
@@ -42,6 +45,9 @@ public class Partido {
         }
         numerosCamisetaJugadores.add(capitan2.numeroDeCamiseta);
     }
+    /**
+     * Pide los nombres, números de los jugadores y se asegura de que el número no esté repetido
+     */
     public static void pedirNombresJugadores() {
         Scanner nombres = new Scanner(System.in);
         Scanner numeros = new Scanner(System.in);
@@ -66,6 +72,9 @@ public class Partido {
 
     }
 
+    /**
+     * Aquí ya se empiezan a formar los equipos, intercalando el turno del capitán 1 y del capitán 2
+     */
     public static void formarEquipos() {
         Scanner nombres = new Scanner(System.in);
         int contador = 0;
@@ -94,6 +103,10 @@ public class Partido {
 
         }
     }
+
+    /**
+     * Imprime los equipos
+     */
     public static void imprimirEquipos(){
         System.out.println("EQUIPO 1");
         System.out.println(nombresJugadoresEquipo1.toString());

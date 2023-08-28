@@ -2,6 +2,9 @@ package Modulo1.pasajeros.ui;
 
 import static Modulo1.pasajeros.process.Pasajeros.menuPasajeros;
 
+/**
+ * Corre el menú creado en process
+ */
 public class CLI {
     public static void showMenu(){
         System.out.println("Bienvenido a Autobuses Alfa.");

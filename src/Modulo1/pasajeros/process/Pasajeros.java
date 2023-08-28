@@ -6,6 +6,9 @@ import utilsMenu.MenuAction;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * Es la clase encargada de crear, eliminar y visualizar los pasajeros
+ */
 public class Pasajeros {
    public static LinkedList<String> nombresPasajeros = new LinkedList<>();
 
@@ -16,6 +19,9 @@ public class Pasajeros {
     public static final String visualizarPasajerosOption = "Visualizar pasajeros";
 
     // ACTIONS
+    /**
+     * Es la acción para agregar los pasajeros a la lista
+     */
     public static final MenuAction agregarPasajerosAction = (scanner) -> {
         String pasajeroAgregado;
         Scanner scannerAgregar = new Scanner(System.in);
@@ -27,6 +33,9 @@ public class Pasajeros {
         System.out.println("Regresando al menú...");
 
     };
+    /**
+     * Es la acción para eliminar los pasajeros de la lista
+     */
     public static final MenuAction eliminarPasajerosAction = (scanner) -> {
         String pasajeroEliminado;
         Scanner scannerEliminar = new Scanner(System.in);
@@ -39,6 +48,10 @@ public class Pasajeros {
             System.out.println("No se encontró al pasajero, intente de nuevo.");
         }
     };
+
+    /**
+     * Es la acción para visualizar la lista de los pasajeros
+     */
     public static final MenuAction visualizarPasajerosAction = (scanner) -> {
         System.out.println(nombresPasajeros.toString());
     };
