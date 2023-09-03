@@ -33,4 +33,4 @@ public class Stack <E> {
             return lista.size();
         }
     }
-
+}
