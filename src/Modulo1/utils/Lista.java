@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package Modulo1.utils;
 
 import java.util.Optional;
@@ -17,3 +18,24 @@ public interface Lista <E>{
     boolean contains(E t);
 
 }
+=======
+package Modulo1.utils;
+
+import java.util.Optional;
+
+/**
+ * Interfaz base para la implementación de listas enlazadas
+ * */
+public interface Lista <E>{
+    void add(E e);
+    void remove(E e);
+    Optional<E> get(int index);
+
+    void update(E oldValue, E newValue);
+
+    int size();
+
+    boolean contains(E t);
+
+}
+>>>>>>> Stashed changes
