@@ -1,7 +1,7 @@
 package Modulo1.utils;
 import java.util.Optional;
 
-    public class ListaEnlazada<E> implements Lista<E> {
+public class ListaEnlazada <E> implements Lista<E> {
 
         Optional <Node<E>> firstNode;
 
@@ -125,3 +125,4 @@ import java.util.Optional;
             firstNode = firstNode.get().next;
         }
     }
+

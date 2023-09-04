@@ -2,7 +2,7 @@ package Modulo1.utils;
 
 import java.util.Optional;
 
-public class Stack <E> {
+public class Stack <E>{
         private final ListaEnlazada<E> lista = new ListaEnlazada<>();
 
         public boolean isEmpty() {
@@ -33,4 +33,4 @@ public class Stack <E> {
             return lista.size();
         }
     }
-}
+

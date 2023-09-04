@@ -7,9 +7,9 @@ public class InfijaAPostfija {
         int jerarquia = 0;
         if(operador == ('^')) jerarquia = 3;
         if(operador == ('*') ||operador == ( '/')) jerarquia = 2;
-        if(operador ==('+')|| operador == ('-')) jerarquia = 1;
+        if(operador == ('+')|| operador == ('-')) jerarquia = 1;
         return jerarquia;
-    }
+    } 
 
 
     public static boolean buscarOperador(char operador) {

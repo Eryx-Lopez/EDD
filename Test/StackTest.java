@@ -1,7 +1,6 @@
-import Modulo1.utils.Stack;
-import org.junit.Assert;
 import org.junit.Test;
-
+import org.junit.Assert;
+import Modulo1.utils.Stack;
 import java.util.Optional;
 
 public class StackTest {
@@ -59,5 +58,5 @@ public class StackTest {
             stack.push(5);
             Assert.assertFalse(stack.isEmpty());
         }
-    }
 
+}
