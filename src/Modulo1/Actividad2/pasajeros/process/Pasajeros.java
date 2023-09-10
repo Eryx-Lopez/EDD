@@ -1,4 +1,4 @@
-package Modulo1.pasajeros.process;
+package Modulo1.Actividad2.pasajeros.process;
 
 import utilsMenu.Menu;
 import utilsMenu.MenuAction;

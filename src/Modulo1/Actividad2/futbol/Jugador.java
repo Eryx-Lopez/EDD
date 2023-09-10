@@ -1,4 +1,4 @@
-package Modulo1.futbol;
+package Modulo1.Actividad2.futbol;
 
 /**
  * Es la clase que se encarga de guardar los datos de nombre, camiseta y de si es capitán o no

@@ -1,6 +1,6 @@
-package Modulo1.futbol.ui;
+package Modulo1.Actividad2.futbol.ui;
 
-import static Modulo1.futbol.process.Partido.*;
+import static Modulo1.Actividad2.futbol.process.Partido.*;
 
 /**
  * CLI manda a llamar los métodos creados en process

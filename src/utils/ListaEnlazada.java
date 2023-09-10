@@ -1,11 +1,16 @@
-package Modulo1.futbol.utils;
+package utils;
 import java.util.Optional;
 
-public class listaEnlazadaFutbol<E> implements Lista<E> {
+public class ListaEnlazada<E> implements Lista<E> {
+
     Optional <Node<E>> firstNode;
-    public listaEnlazadaFutbol(){
+
+    //Constructores
+    public ListaEnlazada(){
         this.firstNode = Optional.empty();
     }
+
+
     @Override
     public void add(E e) {
         Optional <Node<E>> newNode = Optional.of(new Node<>(e));
@@ -21,25 +26,25 @@ public class listaEnlazadaFutbol<E> implements Lista<E> {
         }
     }
 
-
     @Override
     public void remove(E e) {
+        if (firstNode.isEmpty()){
+            return;
+        }
         if(firstNode.get().data == e){
             firstNode = firstNode.get().next;
-        }
+        } else {
+            Optional <Node<E>> nodeRemover = firstNode.get().next;
+            Optional <Node<E>> currentNode = firstNode;
 
-
-        Optional <Node<E>> nodeRemover = firstNode.get().next;
-        Optional <Node<E>> currentNode = firstNode;
-
-
-        while (!nodeRemover.isEmpty()) {
-            if (nodeRemover.get().data == e){
-                currentNode.get().next = nodeRemover.get().next;
-                return;
+            while (!nodeRemover.isEmpty()) {
+                if (nodeRemover.get().data.equals(e)){
+                    currentNode.get().next = nodeRemover.get().next;
+                    return;
+                }
+                nodeRemover = nodeRemover.get().next;
+                currentNode = currentNode.get().next;
             }
-            nodeRemover = nodeRemover.get().next;
-            currentNode = currentNode.get().next;
         }
     }
 
@@ -48,7 +53,6 @@ public class listaEnlazadaFutbol<E> implements Lista<E> {
         if (index < 0) {
             throw new IndexOutOfBoundsException();
         }
-
 
         int count = 0;
         Optional <Node<E>> currentNode = firstNode;
@@ -66,7 +70,6 @@ public class listaEnlazadaFutbol<E> implements Lista<E> {
     public void update(E oldValue, E newValue) {
         Optional <Node<E>> currentNode = firstNode;
 
-
         while (!currentNode.isEmpty()) {
             if (currentNode.get().data == oldValue) {
                 currentNode.get().data = newValue;
@@ -80,7 +83,6 @@ public class listaEnlazadaFutbol<E> implements Lista<E> {
     public int size() {
         int size = 0;
         Optional<Node<E>> currentNode = firstNode;
-
 
         while (!currentNode.isEmpty()){
             size++;
@@ -101,6 +103,25 @@ public class listaEnlazadaFutbol<E> implements Lista<E> {
         return false;
     }
 
+    public void showList(){
+        Optional <Node<E>> currentNode = firstNode;
+        while (!currentNode.isEmpty()){
+            System.out.println(currentNode.get().data);
+            currentNode = currentNode.get().next;
+        }
+    }
 
+    public Optional<Node<E>> getFirstNode(){
+        return firstNode;
+    }
+
+    public void addFirst(E e){
+        Optional <Node<E>> newNode = Optional.of(new Node<>(e));
+        newNode.get().next = firstNode;
+        firstNode = newNode;
+    }
+
+    public void removeFirst() {
+        firstNode = firstNode.get().next;
+    }
 }
-
