@@ -1,6 +1,6 @@
-package Modulo1.pasajeros.ui;
+package Modulo1.Actividad2.pasajeros.ui;
 
-import static Modulo1.pasajeros.process.Pasajeros.menuPasajeros;
+import static Modulo1.Actividad2.pasajeros.process.Pasajeros.menuPasajeros;
 
 /**
  * Corre el menú creado en process

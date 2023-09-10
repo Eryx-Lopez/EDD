@@ -1,12 +1,13 @@
-package Modulo1.pasajeros.utils;
 import org.junit.Assert;
 import org.junit.Test;
+import utils.ListaEnlazada;
+
 import java.util.Optional;
 
 public class ListaEnlazadaTest {
     @Test
     public void add1ElementTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         Assert.assertEquals(Optional.of(5),lista.get(0));
         Assert.assertEquals(1,lista.size());
@@ -14,7 +15,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void add2Element2Test(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         lista.add(78);
         Assert.assertEquals(Optional.of(5),lista.get(0));
@@ -23,7 +24,7 @@ public class ListaEnlazadaTest {
     }
     @Test
     public void getNegativeIndexTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         Assert.assertThrows(IndexOutOfBoundsException.class,()->lista.get(-1));
         Assert.assertEquals(1,lista.size());
@@ -31,7 +32,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void getIndexOutOfBoundsTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         Assert.assertThrows(IndexOutOfBoundsException.class,()->lista.get(1));
         Assert.assertEquals(1,lista.size());
@@ -39,7 +40,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void containsElementsTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         lista.add(78);
         Assert.assertTrue(lista.contains(78));
@@ -49,7 +50,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void containsNotPResentElementsTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         lista.add(78);
         Assert.assertFalse(lista.contains(79));
@@ -57,7 +58,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void updateTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         lista.update(5,78);
         Assert.assertFalse(lista.contains(5));
@@ -67,13 +68,13 @@ public class ListaEnlazadaTest {
 
     @Test
     public void removeEmptyTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.remove(5);
         Assert.assertEquals(0,lista.size());
     }
     @Test
     public void removeRootTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         lista.add(78);
         lista.add(105);
@@ -85,7 +86,7 @@ public class ListaEnlazadaTest {
     }
     @Test
     public void removeMiddleTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         lista.add(78);
         lista.add(105);
@@ -97,7 +98,7 @@ public class ListaEnlazadaTest {
     }
     @Test
     public void removeLastTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
         lista.add(5);
         lista.add(78);
         lista.add(105);
@@ -105,6 +106,44 @@ public class ListaEnlazadaTest {
         Assert.assertTrue(lista.contains(5));
         Assert.assertTrue(lista.contains(78));
         Assert.assertFalse(lista.contains(105));
+        Assert.assertEquals(2,lista.size());
+    }
+
+    //pruebas para metodos addfirst y removefirst
+    @Test
+    public void addFirstTest(){
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
+        lista.addFirst(5);
+        lista.addFirst(78);
+        lista.addFirst(105);
+        Assert.assertTrue(lista.get(0).get()==105);
+        Assert.assertFalse(lista.get(0).get()==5);
+        Assert.assertEquals(3,lista.size());
+    }
+
+    @Test
+    public void addFirst_and_add_Test(){
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
+        lista.addFirst(5);
+        lista.add(78);
+        lista.addFirst(105);
+        Assert.assertTrue(lista.get(0).get()==105);
+        Assert.assertTrue(lista.get(1).get()==5);
+        Assert.assertTrue(lista.get(2).get()==78);
+        Assert.assertEquals(3,lista.size());
+    }
+
+    @Test
+    public void removeFirstTest(){
+        ListaEnlazada<Integer> lista = new ListaEnlazada<>();
+        lista.add(5);
+        lista.add(78);
+        lista.add(105);
+        lista.removeFirst();
+
+        Assert.assertFalse(lista.contains(5));
+        Assert.assertTrue(lista.get(0).get()==78);
+        Assert.assertTrue(lista.get(1).get()==105);
         Assert.assertEquals(2,lista.size());
     }
 }

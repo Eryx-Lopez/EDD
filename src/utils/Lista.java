@@ -1,4 +1,4 @@
-package Modulo1.futbol.utils;
+package utils;
 
 import java.util.Optional;
 
@@ -17,3 +17,4 @@ public interface Lista <E>{
     boolean contains(E t);
 
 }
+
