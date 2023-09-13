@@ -1,12 +1,14 @@
-package Modulo1.pasajeros.utils;
+package Modulo1.Actividad2.utils;
+
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.util.Optional;
 
 public class ListaEnlazadaTest {
     @Test
     public void add1ElementTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         Assert.assertEquals(Optional.of(5),lista.get(0));
         Assert.assertEquals(1,lista.size());
@@ -14,7 +16,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void add2Element2Test(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         lista.add(78);
         Assert.assertEquals(Optional.of(5),lista.get(0));
@@ -23,7 +25,7 @@ public class ListaEnlazadaTest {
     }
     @Test
     public void getNegativeIndexTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         Assert.assertThrows(IndexOutOfBoundsException.class,()->lista.get(-1));
         Assert.assertEquals(1,lista.size());
@@ -31,7 +33,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void getIndexOutOfBoundsTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         Assert.assertThrows(IndexOutOfBoundsException.class,()->lista.get(1));
         Assert.assertEquals(1,lista.size());
@@ -39,7 +41,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void containsElementsTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         lista.add(78);
         Assert.assertTrue(lista.contains(78));
@@ -49,7 +51,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void containsNotPResentElementsTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         lista.add(78);
         Assert.assertFalse(lista.contains(79));
@@ -57,7 +59,7 @@ public class ListaEnlazadaTest {
 
     @Test
     public void updateTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         lista.update(5,78);
         Assert.assertFalse(lista.contains(5));
@@ -67,13 +69,13 @@ public class ListaEnlazadaTest {
 
     @Test
     public void removeEmptyTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.remove(5);
         Assert.assertEquals(0,lista.size());
     }
     @Test
     public void removeRootTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         lista.add(78);
         lista.add(105);
@@ -85,7 +87,7 @@ public class ListaEnlazadaTest {
     }
     @Test
     public void removeMiddleTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         lista.add(78);
         lista.add(105);
@@ -97,7 +99,7 @@ public class ListaEnlazadaTest {
     }
     @Test
     public void removeLastTest(){
-        listaEnlazadaPasajeros<Integer> lista = new listaEnlazadaPasajeros<>();
+        listaEnlazadaFutbol<Integer> lista = new listaEnlazadaFutbol<>();
         lista.add(5);
         lista.add(78);
         lista.add(105);

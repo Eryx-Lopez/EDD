@@ -1,4 +1,4 @@
-package Modulo1.pasajeros.utils;
+package Modulo1.Actividad2.utils;
 
 import java.util.Optional;
 

@@ -1,6 +1,6 @@
-package Modulo1.pasajeros;
+package Modulo1.Actividad2.pasajeros;
 
-import Modulo1.pasajeros.ui.CLI;
+import Modulo1.Actividad2.pasajeros.ui.CLI;
 
 /**
  * Corre la clase de CLI

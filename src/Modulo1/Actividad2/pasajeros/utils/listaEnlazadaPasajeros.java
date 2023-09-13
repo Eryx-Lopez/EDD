@@ -1,6 +1,4 @@
-package Modulo1.pasajeros.utils;
-import Modulo1.pasajeros.utils.Lista;
-import Modulo1.pasajeros.utils.Node;
+package Modulo1.Actividad2.pasajeros.utils;
 import java.util.Optional;
 
 public class listaEnlazadaPasajeros<E> implements Lista<E> {

@@ -1,6 +1,6 @@
-package Modulo1.futbol;
+package Modulo1.Actividad2;
 
-import Modulo1.futbol.ui.CLI;
+import Modulo1.Actividad2.ui.CLI;
 
 /**
  * Corre CLI, que hace que corra todo el programa

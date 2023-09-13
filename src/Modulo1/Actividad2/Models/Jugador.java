@@ -1,12 +1,9 @@
-package Modulo1.futbol;
+package Modulo1.Actividad2.Models;
 
-/**
- * Es la clase que se encarga de guardar los datos de nombre, camiseta y de si es capitán o no
- */
 public class Jugador {
-public String nombre;
-public int numeroDeCamiseta;
-public  boolean capitan;
+    public String nombre;
+    public int numeroDeCamiseta;
+    public  boolean capitan;
 
     @Override
     public String toString() {

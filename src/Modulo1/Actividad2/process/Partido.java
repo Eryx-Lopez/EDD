@@ -1,6 +1,7 @@
-package Modulo1.futbol.process;
+package Modulo1.Actividad2.process;
 
-import Modulo1.futbol.Jugador;
+
+import Modulo1.Actividad2.Models.Jugador;
 
 import java.util.LinkedList;
 import java.util.Scanner;

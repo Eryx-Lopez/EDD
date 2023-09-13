@@ -1,4 +1,4 @@
-package Modulo1.futbol.utils;
+package Modulo1.Actividad2.utils;
 import java.util.Optional;
 
 public class listaEnlazadaFutbol<E> implements Lista<E> {
