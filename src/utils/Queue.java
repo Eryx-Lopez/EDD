@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class Queue <E> {
 
-    private final ListaEnlazada<E> lista = new ListaEnlazada<>();
+    protected ListaEnlazada<E> lista = new ListaEnlazada<>();
 
     public boolean isEmpty() {
         return (lista.size() == 0);
