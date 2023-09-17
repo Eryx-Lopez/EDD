@@ -1,5 +1,4 @@
 package utils;
-
 import java.util.LinkedList;
 
 public class PriorityQueue <E extends Comparable> {
@@ -36,7 +35,8 @@ public class PriorityQueue <E extends Comparable> {
                 left = getLeft(index);
                 right = getRight(index);
               //  if(left< lista.size() && right< lista.size()) {
-                //    child = (lista.get(left).get().compareTo(lista.get(right).get()) > 0) ? left > right ? left : right; //es un boolean, si la cumple, devuelve el valor de la izquierda
+                //    child = (lista.get(left).get().compareTo(lista.get(right).get()) > 0) ? left > right ? left : right;
+                // es un boolean, si la cumple, devuelve el valor de la izquierda
                     // y si no, el de la derecha
                 //}
             }
