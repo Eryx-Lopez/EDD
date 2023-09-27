@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import utils.Stack;
+import utils.Collections.Stack;
 
 import java.util.Optional;
 

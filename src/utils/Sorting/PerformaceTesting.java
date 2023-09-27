@@ -1,6 +1,5 @@
 package utils.Sorting;
 
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -30,7 +29,9 @@ public class PerformaceTesting {
         }
         
         for(double[] results: performanceResults)
-            System.out.println(Arrays.toString(results).replace("[","").replace("]","").replace(",",""));
+            System.out.println(Arrays.toString(results)
+                    .replace("[","")
+                    .replace("]",""));
     }
     public static int[] getRandomArray(int n, int minVal, int maxVal) {
         Random random = new Random();
