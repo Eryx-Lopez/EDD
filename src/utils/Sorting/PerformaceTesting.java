@@ -5,6 +5,12 @@ import java.util.Random;
 public class PerformaceTesting {
     public static int COMPARACIONES = 0;
     public static int MOVIMIENTOS = 0;
+
+    /**
+     * Se encarga de crear varias y probar el código, usando varios números aleatorios mandandos por
+     * el método que le sigue
+     * @param sorter el tipo de sorter que se usa
+     */
     public static void testPerformance(Sorter sorter ) {
         final int RANGO = 1_000;
         final int ITERACIONES = 500; //Cuántas veces voy a hacer la misma prueba.
@@ -32,6 +38,14 @@ public class PerformaceTesting {
                     .replace("[","")
                     .replace("]",""));
     }
+
+    /**
+     * Genera un array con datods aleatorios
+     * @param n
+     * @param minVal valor mínimo
+     * @param maxVal valor máximo
+     * @return devuelve el random convertido en arreglo
+     */
     public static int[] getRandomArray(int n, int minVal, int maxVal) {
         Random random = new Random();
         return random.ints(n, minVal, maxVal).toArray();
