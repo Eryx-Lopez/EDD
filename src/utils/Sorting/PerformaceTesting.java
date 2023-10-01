@@ -1,5 +1,4 @@
 package utils.Sorting;
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -38,10 +37,5 @@ public class PerformaceTesting {
         return random.ints(n, minVal, maxVal).toArray();
     }
 
-    public static void swap(int[] N, int i, int j) {
-        int aux = N[i];
-        N[i] = N[j];
-        N[j] = aux;
-    }
 
 }
