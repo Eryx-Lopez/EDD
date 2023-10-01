@@ -1,4 +1,4 @@
-package utils;
+package utils.Collections;
 import java.util.Optional;
 
 public class Stack <E> {
