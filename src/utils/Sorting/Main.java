@@ -8,7 +8,9 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        testPerformance(SorterFactory.getSorter(Sorter.SorterMethods.SELECTION));
+        testPerformance(SorterFactory.getSorter(Sorter.SorterMethods.MERGE));
 
     }
+
+
 }
