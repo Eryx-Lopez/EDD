@@ -99,21 +99,23 @@ public class SorterFactory {
                 }
 
                 public void heapify(int N[], int n, int k) {
-                    {
-                        int largest = k;
-                        int leftChild = 2 * k + 1;
-                        int rightChild = 2 * k + 2;
+                    int largest = k;
+                    int leftChild = 2 * k + 1;
+                    int rightChild = 2 * k + 2;
 
-                        // If left child is larger than root
-                        if (leftChild < n && N[leftChild] > N[largest]) {
-                            largest = leftChild;
-                            if (rightChild < n && N[rightChild] > N[largest]) {
-                                if (largest != k) {
-                                    swap(N, k, largest);
-                                }
+                    // If left child is larger than root
+                    if (leftChild < n && N[leftChild] > N[largest]) {
+                        largest = leftChild;
+
+                        if (rightChild < n && N[rightChild] > N[largest]) {
+                            largest = rightChild;
+
+                            if (largest != k) {
+                                swap(N, k, largest);
+
+                                heapify(N, n, largest);
                             }
                         }
-                        heapify(N, n, largest);
                     }
                 }
             };
@@ -130,16 +132,22 @@ public class SorterFactory {
                     if(N.length == 1){
                         return N;
                     }
-                    int mitad = N.length/2;
-                    int[] n1 = new int [(N.length % 2) == 1 ? mitad + 1 : mitad];
-                    int[] n2 = new int [mitad];
-                    int[] n1copy = n1.clone();
-                    int[] n2copy = n2.clone();
-                    //Copiar los valores del array
 
-                    sorter(n1copy);
-                    sorter(n2copy);
-                    return merge(n1copy, n2copy);
+                    int mitad = N.length/2;
+                    int[] leftCopy = new int [mitad];
+                    int[] rightCopy = new int [(N.length % 2) == 1 ? mitad + 1 : mitad];
+
+                    //Copiar los valores del array
+                    for(int i = 0; i < mitad; i++){
+                        leftCopy[i] = N[i];
+                    }
+                    for(int i = mitad; i < N.length; i++){
+                        rightCopy[i-mitad] = N[i];
+                    }
+
+                    leftCopy = sorter(leftCopy);
+                    rightCopy = sorter(rightCopy);
+                    return merge(leftCopy, rightCopy);
                 }
                 public int[] merge(int[] n1, int[] n2){
                     MOVIMIENTOS = 0;
@@ -150,7 +158,7 @@ public class SorterFactory {
                     int index2 = 0;
 
                     for(int i = 0; i < N.length; i++){
-                        COMPARACIONES++;
+
                         if(index1 == n1.length){
                             N[i]= n2[index2];
                             index2++;
@@ -160,15 +168,15 @@ public class SorterFactory {
                             N[i]= n1[index1];
                             index1++;
                             MOVIMIENTOS++;
-
                         }else if(n1[index1]< n2[index2]){
                             N[i]= n1[index1];
                             index1++;
+                            COMPARACIONES++;
                             MOVIMIENTOS++;
-
                         }else{
                             N[i]= n2[index2];
                             index2++;
+                            COMPARACIONES++;
                             MOVIMIENTOS++;
                         }
                     }
