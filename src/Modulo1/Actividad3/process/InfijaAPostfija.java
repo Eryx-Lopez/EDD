@@ -1,5 +1,5 @@
 package Modulo1.Actividad3.process;
-import utils.Stack;
+import utils.Collections.Stack;
 public class InfijaAPostfija {
 
     private static int sacarPrioridadDeOperador(char operador){

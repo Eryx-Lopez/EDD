@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import utils.ListaEnlazada;
+import utils.Collections.ListaEnlazada;
 
 import java.util.Optional;
 
