@@ -31,9 +31,10 @@ public class SorterFactory {
                     for (int i = 0; i < N.length - 1; i++) {
                         int minIndex = i;
                         for (int j = i + 1; j < N.length; j++) {
-                            COMPARACIONES++;
                             if (N[minIndex] > N[j]) {
                                 minIndex = j;
+                                COMPARACIONES++;
+
                             }
                         }
                         if (minIndex != i) {
@@ -50,13 +51,13 @@ public class SorterFactory {
                     MOVIMIENTOS = 0;
                     COMPARACIONES = 0;
                     for (int i = 1; i < N.length; ++i) {
-                        COMPARACIONES++;
                         int firstElem = N[i];
                         int lastElemSorted = i - 1;
 
                         while (lastElemSorted >= 0 && N[lastElemSorted] > firstElem) {
-                            MOVIMIENTOS++;
+                            COMPARACIONES++;
                             N[lastElemSorted + 1] = N[lastElemSorted];
+                            MOVIMIENTOS++;
                             lastElemSorted--;
                         }
                     }
@@ -66,6 +67,9 @@ public class SorterFactory {
             case SHELL -> new Sorter() {
                 @Override
                 public void sort(int[] N) {
+                    MOVIMIENTOS = 0;
+                    COMPARACIONES = 0;
+
                     int knuthsForm = 1;
                     while (knuthsForm < N.length / 3) {
                         COMPARACIONES++;
@@ -87,41 +91,46 @@ public class SorterFactory {
             case HEAP -> new Sorter() {
                 @Override
                 public void sort(int[] N) {
+                    MOVIMIENTOS = 0;
+                    COMPARACIONES = 0;
+
                     for (int i = N.length / 2 - 1; i >= 0; i--) {
-                        COMPARACIONES++;
                         heapify(N, N.length, i);
-                        for (int j = N.length - 1; i > 0; i--) {
-                            swap(N, 0, i);
-                            MOVIMIENTOS++;
-                            heapify(N, i, 0);
-                        }
+                    }
+                    for (int i = N.length - 1; i > 0; i--) {
+                        swap(N, 0, i);
+                        MOVIMIENTOS++;
+                        heapify(N, i, 0);
                     }
                 }
 
-                public void heapify(int N[], int n, int k) {
+               void heapify(int N[], int n, int k) {
                     int largest = k;
                     int leftChild = 2 * k + 1;
                     int rightChild = 2 * k + 2;
 
                     // If left child is larger than root
                     if (leftChild < n && N[leftChild] > N[largest]) {
+                        COMPARACIONES++;
                         largest = leftChild;
-
-                        if (rightChild < n && N[rightChild] > N[largest]) {
-                            largest = rightChild;
-
-                            if (largest != k) {
-                                swap(N, k, largest);
-
-                                heapify(N, n, largest);
-                            }
-                        }
+                    }
+                    if (rightChild < n && N[rightChild] > N[largest]) {
+                        COMPARACIONES++;
+                        largest = rightChild;
+                    }
+                    if (largest != k) {
+                         swap(N, k, largest);
+                         MOVIMIENTOS++;
+                         heapify(N, n, largest);
                     }
                 }
             };
             case MERGE -> new Sorter() {
                 @Override
                 public void sort(int[] N) {
+                    COMPARACIONES = 0;
+                    MOVIMIENTOS = 0;
+
                     int[] aux = sorter(N);
                     for (int i = 0; i < N.length; i++){
                         N[i] = aux[i];
@@ -147,11 +156,10 @@ public class SorterFactory {
 
                     leftCopy = sorter(leftCopy);
                     rightCopy = sorter(rightCopy);
+
                     return merge(leftCopy, rightCopy);
                 }
                 public int[] merge(int[] n1, int[] n2){
-                    MOVIMIENTOS = 0;
-                    COMPARACIONES = 0;
 
                     int[] N = new int[n1.length + n2.length];
                     int index1 = 0;
@@ -182,12 +190,87 @@ public class SorterFactory {
                     }
 
                     return N;
-
                 }
 
             };
-            case QUICK -> null;
+            case QUICK -> new Sorter() {
+                @Override
+                public void sort(int[] N) {
+                    COMPARACIONES = 0;
+                    MOVIMIENTOS = 0;
 
+                    sorter(N, 0, N.length-1);
+
+                }
+                public void sorter(int[] N, int left, int right){
+                    int index;
+
+                    if((right - left) > 0){
+                        index = getPartition(N, left, right);
+                        sorter(N, left, index-1);
+                        sorter(N, index +1, right);
+                    }
+                }
+
+                public int getPartition(int[] N, int left, int right){
+                    int pivot = right;
+                    int firstHigh = left;
+
+                    for(int i = left; i < right; i++){
+                        COMPARACIONES++;
+                        if(N[i] < N[pivot]){
+                            swap(N, i, firstHigh);
+                            MOVIMIENTOS++;
+                            firstHigh++;
+                        }
+                    }
+                    swap(N, pivot, firstHigh);
+                    MOVIMIENTOS++;
+                    return firstHigh;
+                }
+            };
+            case BINARIA -> new Sorter() {
+                @Override
+                public void sort(int[] N) {
+                    MOVIMIENTOS = 0;
+                    COMPARACIONES = 0;
+
+                    int left = 0;
+                    int right = N.length -1;
+
+                    while (left <= right){
+                        int n = left + (right - left)/2;
+                        COMPARACIONES++;
+
+                        if(N[n] == N.length){
+                            MOVIMIENTOS++;
+                            break;
+                        }
+                        if(N[n] < N.length){
+                            left = n + 1;
+                        }else{
+                            right = n - 1;
+                        }
+                    }
+                }
+            };
+
+            case SECUENCIAL -> new Sorter() {
+                @Override
+                public void sort(int[] N) {
+                    MOVIMIENTOS = 0;
+                    COMPARACIONES = 0;
+
+                    for(int i = 0; i < N.length; i++){
+                        COMPARACIONES++;
+
+                        if (N[i] == N.length){
+                            MOVIMIENTOS++;
+                            return;
+                        }
+                    }
+                }
+            };
 
             //https://www.geeksforgeeks.org/bubble-sort/
             //https://visualgo.net/en/sorting

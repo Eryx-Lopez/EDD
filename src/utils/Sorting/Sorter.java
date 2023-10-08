@@ -43,7 +43,7 @@ public abstract class Sorter {
      * La lista de los sorters
      */
     public enum SorterMethods {
-        BUBBLE,SELECTION,INSERTION,SHELL,MERGE,QUICK,HEAP
+        BUBBLE,SELECTION,INSERTION,SHELL,MERGE,QUICK,HEAP, SECUENCIAL, BINARIA
     }
 
 
