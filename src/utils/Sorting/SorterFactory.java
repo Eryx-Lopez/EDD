@@ -1,6 +1,12 @@
 package utils.Sorting;
 
 public class SorterFactory {
+    /** Es un switch case que tiene como cases los diferentes métodos de sorteo
+     *
+     *
+     * @param method el método que se usa
+     * @return returnea el procedimiento del método
+     */
     public static Sorter getSorter(Sorter.SorterMethods method) {
 
         return switch (method) {
