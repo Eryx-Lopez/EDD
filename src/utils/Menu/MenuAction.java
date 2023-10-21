@@ -1,4 +1,4 @@
-package utilsMenu;
+package utils.Menu;
 
 import java.util.Scanner;
 

@@ -1,7 +1,7 @@
 package Modulo1.Actividad2.pasajeros.process;
 
-import utilsMenu.Menu;
-import utilsMenu.MenuAction;
+import utils.Menu.Menu;
+import utils.Menu.MenuAction;
 
 import java.util.LinkedList;
 import java.util.Scanner;
