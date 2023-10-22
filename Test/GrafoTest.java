@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
-import utils.Collections.Grafo;
-import utils.Collections.SearchGraph;
+import utils.Collections.Grafos.Grafo;
+import utils.Collections.Grafos.SearchGraph;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;

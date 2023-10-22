@@ -1,4 +1,4 @@
-package utils.Collections;
+package utils.Collections.Grafos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ public class Grafo {
 
     public void addVertice(String name) {
         new Vertice(name);
-        vertices.put(new Vertice(name), new ArrayList<>());
+        vertices.put(new Vertice(name), new ArrayList<Arista>());
 
     }
 
@@ -49,7 +49,7 @@ public class Grafo {
             return name;
         }
     }
-    public static class Arista {
+    public class Arista {
         private final Vertice v1;
         private final Vertice v2;
         private final double weight;
