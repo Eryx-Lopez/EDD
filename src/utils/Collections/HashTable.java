@@ -2,24 +2,39 @@ package utils.Collections;
 
 import java.util.ArrayList;
 
+/**
+ * Clase HashTable
+ * @param <Key> llave
+ * @param <Value> valor que contiene la llave
+ */
 public class HashTable<Key, Value> {
-    private int capacity;
     private ArrayList<Entry<Key, Value>> table[];
-    int size = 0;
+    private int size = 0;
+
+    /**
+     * Constructor de la clase
+     * @param capacity capacidad o tope de la HashTable
+     */
 
     public HashTable(int capacity) {
         table = new ArrayList[capacity];
+        for (int i = 0; i < capacity; i++) {
+            table[i] = new ArrayList<>();
+        }
     }
 
     /**
-     * Mientras no este vacio, recorre la lista hasta llegar al tope,
-     * almacenando la cantidad en la variable size que aumenta con cada iteracion
-     * @return el tamano final
+     * Método encargado de sacar el tamaño
+     * @return el tamaño
      */
     public int size(){
         return size;
     }
 
+    /**
+     * Método para determinar si la HashTable está vacía o no
+     * @return falso si está llena o true si está vacía
+     */
     public boolean isEmpty(){
     if (this.size() == 0){
         return true;
@@ -27,7 +42,13 @@ public class HashTable<Key, Value> {
     else{ return false; }
     }
 
-    public HashTable add(Key key, Value value){
+    /**
+     * Método para añadir valores al HashTable
+     * @param key llave asignada
+     * @param value valor que se le asigna a la llave
+     * @return regresa la HT
+     */
+    public HashTable<Key,Value> add(Key key, Value value){
     int index = Math.abs(key.hashCode()) % table.length;
     for (Entry<Key, Value> i : table[index]){
         if(i.getKey().equals(key)){
@@ -36,9 +57,15 @@ public class HashTable<Key, Value> {
         }
     }
     table[index].add(new Entry<>(key, value));
+    size++;
     return this;
     }
 
+    /**
+     * Método para obtener un valor buscando por la llave
+     * @param key
+     * @return
+     */
     public ArrayList<Value> getByKey(Key key){
     int index = Math.abs(key.hashCode()) % table.length;
     ArrayList<Value> values = new ArrayList<>();
@@ -49,6 +76,11 @@ public class HashTable<Key, Value> {
         }
         return values;
     }
+
+    /**
+     * Método para obtener los valores deseados
+     * @return la lista de valores
+     */
     public ArrayList<Value> getValues() {
         ArrayList<Value> values = new ArrayList<>();
         for (ArrayList<Entry<Key, Value>> i : table) {
