@@ -5,7 +5,6 @@ import utils.Collections.Stack;
 import java.util.Optional;
 
 public class StackTest {
-
     @Test
     public void pushTest(){
         Stack<Integer> stack = new Stack<>();
