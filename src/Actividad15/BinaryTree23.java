@@ -3,7 +3,7 @@ package Actividad15;
 public class BinaryTree23 {
     Node23 root = new Node23();
 
-    public boolean search(int key) {
+/*    public boolean search(int key) {
         return search(root, key);
     }
     private boolean search(Node23 node, int key) {
@@ -85,5 +85,7 @@ public class BinaryTree23 {
         newNode.keyCount = 1;
         return newNode;
     }
+
+ */
 
 }

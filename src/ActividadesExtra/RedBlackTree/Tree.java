@@ -2,7 +2,7 @@ package ActividadesExtra.RedBlackTree;
 
 public class Tree {
     public final boolean RED = true;
-    public final boolean BLACK = true;
+    public final boolean BLACK = false;
     private static NodeRB nullNode;
     private NodeRB current;
     private NodeRB parent;
@@ -84,7 +84,8 @@ public class Tree {
             return 0;
         }else{
             int size = 1;
-            size += nodesInTree(node.left);
+            size = size + nodesInTree(node.left);
+            size = size + nodesInTree(node.right);
             return size;
         }
     }
@@ -126,17 +127,66 @@ public class Tree {
                 flipColors(newData);
             }
         }
+        if(current != nullNode){
+            return;
+        }
 
-            if(current != nullNode){
-                return;
-            }
-            current = new NodeRB(newData, nullNode, nullNode);
+        current = new NodeRB(newData, nullNode, nullNode);
+
         if (newData < parent.data) {
             parent.left = current;
         }
         else {
             parent.right = current;
-            flipColors(newData);
         }
+        flipColors(newData);
+    }
+
+
+    //ORDERS
+
+    public void preorderTraversal(){
+        preorderTraversal(header.right);
+    }
+    private void preorderTraversal(NodeRB node){
+        if(node != nullNode){
+            String color = "Red";
+            if (node.color == BLACK) {
+                color = "Black";
+            }
+                System.out.println(node.data + " " + color);
+                preorderTraversal(node.left);
+                preorderTraversal(node.right);
+            }
+    }
+
+    public void inorderTraversal(){
+        inorderTraversal(header.right);
+    }
+    private void inorderTraversal(NodeRB node){
+        if(node != nullNode){
+            inorderTraversal(node.left);
+            String color = "Red";
+            if (node.color == BLACK){
+                color = " Black";
+            }
+            System.out.println(node.data + " " + color);
+            inorderTraversal(node.right);
+        }
+    }
+    public void postorderTraversal(){
+        postorderTraversal(header.right);
+    }
+    private void postorderTraversal(NodeRB node){
+        if( node!= nullNode){
+            postorderTraversal(node.left);
+            postorderTraversal(node.right);
+            String color = "Red";
+            if(node.color == BLACK){
+                color = "Black";
+            }
+            System.out.println(node.data + " " + color);
+        }
+
     }
 }
